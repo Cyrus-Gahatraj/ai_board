@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+@theme {
+  --font-hand: var(--font-caveat), cursive;
+}

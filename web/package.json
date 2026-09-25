@@ -1,0 +1,32 @@
+{
+  "name": "board-web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "voice": "cd ../services/voice && set -a && . ./.env && set +a && .venv/bin/uvicorn main:app --host 127.0.0.1 --port 8001",
+    "db:migrate": "node --env-file=.env scripts/migrate.ts",
+    "ingest": "node --env-file=.env scripts/ingest.ts",
+    "rag:query": "node --env-file=.env scripts/query.ts",
+    "test": "node --test lib/*.test.ts",
+    "vision": "cd ../services/vision && set -a && . ./.env && set +a && .venv/bin/uvicorn main:app --host 127.0.0.1 --port 8002"
+  },
+  "dependencies": {
+    "@google/genai": "^2.24.0",
+    "next": "^15.5.26",
+    "postgres": "^3.4.9",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "unpdf": "^1.8.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^26.6.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.9.3"
+  }
+}
